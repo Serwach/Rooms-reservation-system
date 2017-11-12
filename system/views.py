@@ -2,19 +2,18 @@
 from __future__ import unicode_literals
 
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import Http404
 from .models import Reservation
+from django.shortcuts import render
 
 # Create your views here.
 def index(request):
     all_reservations = Reservation.objects.all()
-    html = ''
-
-    for reservation in all_reservations:
-        url = '/system/' + str(reservation.pk) + '/'
-        html += '<a href="' + url + '">' + str(reservation.pk) + '<a/><br/>'
-
-    return HttpResponse(html)
+    return render(request, 'system/index.html', {'all_reservations': all_reservations})
 
 def reservations(request, reservation_id):
-    return HttpResponse("<h2>Szczegoly rezerwacji: " + str(reservation_id) + "</h2>")
+    try:
+        reservation = Reservation.objects.get(pk=reservation_id)
+    except Reservation.DoesNotExist:
+        raise Http404("Rezerwacja nie istnieje")
+    return render(request, 'system/reservations.html', {'reservation': reservation})
