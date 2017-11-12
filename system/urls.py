@@ -5,8 +5,8 @@ app_name = 'system'
 
 urlpatterns = [
     # /system/
-    url(r'^$', views.index, name='index'),
+    url(r'^$', views.IndexView.as_view(), name='index'),
 
     # /system/id
-    url(r'^(?P<reservation_id>[0-9]+)/$', views.reservations, name='reservations'),
+    url(r'^(?P<pk>[0-9]+)/$', views.ReservationView.as_view(), name='reservations'),
 ]
