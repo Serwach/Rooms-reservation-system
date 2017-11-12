@@ -1,44 +1,14 @@
-{% load staticfiles %}
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="{% static 'system/style.css' %}"/>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+{% extends 'system/base.html' %}
 
-<nav class="navbar navbar-default">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#topNavBar">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="{% url 'system:index' %}">SYSTEM REZERWACJI SAL</a>
-        </div>
-
-        <div class="collapse navbar-collapse" id="topNavBar">
-            <ul class="nav navbar-nav navbar-right">
-                <li class="#">
-                    <a href="{% url 'system:index' %}">
-                        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>&nbsp; ZAREZERWUJ SALE
-                    </a>
-                </li>
-                <li class="#">
-                    <a href="{% url 'system:index' %}">
-                        <span class="glyphicon glyphicon-off" aria-hidden="true"></span>&nbsp; WYLOGUJ
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>
-
-{% if all_reservations %}
-    <h3>Wszystkie rezerwacje:</h3>
-    <ul>
-        {% for reservation in all_reservations %}
-        <li><a href="{% url 'system:reservations' reservation.id %}">{{ reservation.id }}</a></li>
-        {% endfor %}
-    </ul>
-{% else %}
-    <h3>Brak rezerwacji</h3>
-{% endif %}
+{% block body %}
+    {% if all_reservations %}
+        <h3>Wszystkie rezerwacje:</h3>
+        <ul>
+            {% for reservation in all_reservations %}
+            <li><a href="{% url 'system:reservations' reservation.id %}">{{ reservation.id }}</a></li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <h3>Brak rezerwacji</h3>
+    {% endif %}
+{% endblock %}
