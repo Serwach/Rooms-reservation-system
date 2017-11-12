@@ -1,10 +1,8 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
-from django.shortcuts import render
-from django.http import Http404
 from .models import Reservation
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 
 # Create your views here.
 def index(request):
@@ -12,8 +10,5 @@ def index(request):
     return render(request, 'system/index.html', {'all_reservations': all_reservations})
 
 def reservations(request, reservation_id):
-    try:
-        reservation = Reservation.objects.get(pk=reservation_id)
-    except Reservation.DoesNotExist:
-        raise Http404("Rezerwacja nie istnieje")
+    reservation = get_object_or_404(Reservation, pk=reservation_id)
     return render(request, 'system/reservations.html', {'reservation': reservation})
