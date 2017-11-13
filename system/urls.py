@@ -9,4 +9,7 @@ urlpatterns = [
 
     # /system/id
     url(r'^(?P<pk>[0-9]+)/$', views.ReservationView.as_view(), name='reservations'),
+
+    # /system/reservations/add
+    url(r'reservations/add/$', views.ReservationCreate.as_view(success_url="/system/"), name='reservation-add'),
 ]

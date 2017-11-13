@@ -24,7 +24,7 @@
         <div class="collapse navbar-collapse" id="topNavBar">
             <ul class="nav navbar-nav navbar-right">
                 <li class="#">
-                    <a href="{% url 'system:index' %}">
+                    <a href="{% url 'system:reservation-add' %}">
                         <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>&nbsp; ZAREZERWUJ SALE
                     </a>
                 </li>
@@ -37,7 +37,20 @@
         </div>
     </div>
 </nav>
-    {% block body %}
-    {% endblock %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        {% block body %}{% endblock %}
+                    </div>
+                    <div class="panel-footer"><h6><i>2017 &copy; by Mateusz Serwach</i></h6></div>
+                </div>
+            </div>
+            <div class="col-md-3"></div>
+        </div>
+    </div>
 </body>
 </html>
+

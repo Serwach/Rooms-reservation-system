@@ -5,7 +5,7 @@
         <h3>Wszystkie rezerwacje:</h3>
         <ul>
             {% for reservation in all_reservations %}
-            <li><a href="{% url 'system:reservations' reservation.id %}">{{ reservation.id }}</a></li>
+            <li><a href="{% url 'system:reservations' reservation.id %}">{{ reservation.roomid }}</a></li>
             {% endfor %}
         </ul>
     {% else %}
