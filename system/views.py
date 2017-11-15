@@ -2,7 +2,7 @@
 from __future__ import unicode_literals
 
 from django.views import generic
-from .models import Reservation
+from .models import Reservation, User
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
 # Create your views here.
@@ -21,3 +21,7 @@ class ReservationView(generic.DetailView):
 class ReservationCreate(CreateView):
     model = Reservation
     fields = ['userid','roomid','time',]
+
+class UserCreate(CreateView):
+    model = User
+    fields = ['name', 'password', 'subject']

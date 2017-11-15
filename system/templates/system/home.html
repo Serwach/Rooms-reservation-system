@@ -1,3 +1,7 @@
+{% extends 'system/base.html' %}
+
+<title>{% block title %}Zaloguj się{% endblock %}</title>
+
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -20,21 +24,6 @@
             </button>
             <a class="navbar-brand" href="{% url 'system:index' %}">SYSTEM REZERWACJI SAL</a>
         </div>
-
-        <div class="collapse navbar-collapse" id="topNavBar">
-            <ul class="nav navbar-nav navbar-right">
-                <li class="#">
-                    <a href="{% url 'system:reservation-add' %}">
-                        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>&nbsp; ZAREZERWUJ SALE
-                    </a>
-                </li>
-                <li class="#">
-                    <a href="{% url 'system:home' %}">
-                        <span class="glyphicon glyphicon-off" aria-hidden="true"></span>&nbsp; WYLOGUJ
-                    </a>
-                </li>
-            </ul>
-        </div>
     </div>
 </nav>
     <div class="container-fluid">
@@ -52,5 +41,28 @@
         </div>
     </div>
 </body>
+
+{% block body %}
+<div class="container-fluid">
+    <div class="col-md-12">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <form class="form-horizontal" action="" method="post">
+                    {% csrf_token %}
+                    {% include 'system/form-template.html' %}
+                    <div class="form-group">
+                        <div class="col-md-12">
+                            <br/>
+                            <button type="submit" class="btn btn-success">Zaloguj</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+
 </html>
 

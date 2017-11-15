@@ -12,4 +12,7 @@ urlpatterns = [
 
     # /system/reservations/add
     url(r'reservations/add/$', views.ReservationCreate.as_view(success_url="/system/"), name='reservation-add'),
+
+    # /system/login
+    url(r'home/$', views.UserCreate.as_view(success_url="/system/"), name='home'),
 ]
