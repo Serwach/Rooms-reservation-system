@@ -1,6 +1,8 @@
+
+# -*- coding: utf-8 -*-
 """
-Przedstawione modele po wykonaniu poleceń 'python manage.py makemigrations system'
-oraz 'python manage.py migrate' zostaną odzwierciedlone w bazie danych. Aby dodać
+Przedstawione modele po wykonaniu polecen 'python manage.py makemigrations system'
+oraz 'python manage.py migrate' zostaną odzwierciedlone w bazie danych. Aby dodac
 nowy wiersz do tabeli User, należy:
 1 - otworzyć terminal, przejść do katalogu projektu
 2 - wpisać komende 'python manage.py shell', a następnie:
