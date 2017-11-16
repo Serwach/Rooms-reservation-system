@@ -1,6 +1,13 @@
 from django.conf.urls import url
 from . import views
 
+"""
+Plik system/urls.py zawiera linki do urli. Django realizuje architekturę
+model-template-view, w tym pliku wywołujemy metody widoków. Mając gotowy
+model w bazie danych, aby stworzyć strone należy jeszcze tylko napisać do niej
+szablon
+"""
+
 app_name = 'system'
 
 urlpatterns = [

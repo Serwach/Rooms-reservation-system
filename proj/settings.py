@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    # dołączenie aplikacji system
     'system.apps.SystemConfig',
     'django.contrib.admin',
     'django.contrib.auth',
